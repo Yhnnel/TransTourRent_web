@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf=8">
+		<meta name="viewport" content="width=device-width,  initial-scale=1.0">
+		<meta http-equiv="X-AU-Compatible" content="ie-edge,Chrome=1">
+          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="{{url_for('static', filename='styles/profile_edit.css')}}">        
+		<title>TransTouRent | Profile</title>
+	</head>
+	<body>
+		<div class="fcontainer">
+			<div class="f1">
+				<img src="{{url_for('static', filename='images/logo.png')}}" class="logo">
+			</div>
+		</div>
+		
+		<div class="pcontainer">
+			<div class="p1">
+				<a href="/profile_edit"><img src="{{url_for('static', filename='images/profile.png')}}" class="profile"></a>
+			</div>
+		</div>
+			
+		<div>
+			<div class="f2">
+				<div class= "all">
+				  <div class="header-container">
+					   <ul>
+							<li class="active"><a href="/home" >HOME</a></li>
+							<li class="active1"><a href="/vehicle">VEHICLE</a></li>
+							<li>
+								<form action="/bookings" method="post">
+									<input type="submit" name="booking_conf_btn" value="BOOKINGS" class="home_btns">
+								</form>						
+							</li>
+							<li>
+								<form action="/payment" method="post">
+									<input type="submit" name="payment_btn" value="PAYMENT" class="home_btns">
+								</form>	
+							</li>
+							<li><a href="/logout">LOGOUT</a></li>
+					   </ul>
+				  </div>
+					<div class="prof-container" style="height:600px;">
+						<form action="/action_page.php">
+						{% for customer in customer_info %}
+						<div>
+							<a href="/profile"><p class="edit"><u>edit&#9998;</u></p></a>
+							<div class="prof">						 
+							  <h3 class="wel">Profile</h3>
+									<label for="fname" class="firstn">Firstname:</label>
+									<input type="text" id="fname" name="fname" value="{{customer['firstname'] | title}}" class="placeholder" readonly>
+									
+									<label for="lname"  class="lastn">Lastname:</label>								  
+									<input type="text" id="lname" name="lname" value="{{customer['lastname'] | title}}" class="placeholder" id="lastname" readonly>	<br>
+									
+									<label for="age" class="age1">Age:</label>
+									<input type="number" id="age" name="age" value="{{customer['age']}}" class="placeholder" readonly>
+									
+									<label class="gender">Gender:</label>
+									<input type="text" id="lname" name="lname" value="{{customer['gender']}}" class="placeholder" id="lastname" readonly>
+							<br>
+									<label for="province" class="provnc">Location:</label>
+									<input type="text" id="province" name="provice" value="{{customer['location']}}" class="placeholder" readonly>
+									
+									<label for="lname" class="email">Email:</label>
+										<input type="text" name="city" value="{{customer['email']}}" class="placeholder" id="lname" readonly>
+								<br>		
+										<label for="lname" class="cnum">Contact Number:</label>
+										<input type="text" id="province" name="provice" value="{{customer['contact_num']}}" class="placeholder" readonly>
+							</div>
+							{% endfor %}
+								<div class="bday">
+									{% for customer in customer_info %}
+										<input type="text" name="bday" class="month" value="{{customer['birth_month']}}" readonly>
+										<input type="text" name="bday" class="month" value="{{customer['birth_day']}}" readonly>
+										<input type="text" name="bday" class="month" value="{{customer['birth_year']}}" readonly>
+									{% endfor %}
+								</div>
+					</div>
+						
+							
+				</div>
+						  
+					   
+					  
+						  
+					   
+					 
+					
+					   
+				  </div>
+				</div>
+			</div>
+		</div>
+			
+     </body>
+</html>

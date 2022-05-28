@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf=8">
+		<meta name="viewport" content="width=device-width,  initial-scale=1.0">
+		<meta http-equiv="X-AU-Compatible" content="ie-edge,Chrome=1">
+          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="{{url_for('static', filename='styles/booking_conf.css')}}">        
+		<title>TransTouRent | BOOKING</title>
+	</head>
+	<body>
+		<div class="fcontainer">
+			<div class="f1">
+				<img src="{{url_for('static', filename='images/logo.png')}}" class="logo">
+			</div>
+		</div>
+		
+		<div class="pcontainer">
+			<div class="p1">
+				<a href="/profile_edit"><img src="{{url_for('static', filename='images/profile.png')}}" class="profile"></a>
+			</div>
+		</div>
+			
+		<div>
+			<div class="f2">
+				<div class= "all">
+				  <div class="header-container">
+					   <ul>
+							<li><a href="/home" >HOME</a></li>
+							<li class="active"><a href="/vehicle">VEHICLE</a></li>
+							<li>
+								<form action="/bookings" method="post">
+									<input type="submit" name="booking_conf_btn" value="BOOKINGS" class="home_btns">
+								</form>						
+							</li>
+							<li>
+								<form action="/payment" method="post">
+									<input type="submit" name="payment_btn" value="PAYMENT" class="home_btns">
+								</form>	
+							</li>
+							<li><a href="/logout">LOGOUT</a></li>
+					   </ul>
+				  </div>
+				  <div class="bk-container">
+                        {% for customer in customer_info %}
+                            <div class="customer_info">
+                                <h2>Your Info</h2>
+                                <p><span>Name:</span> {{customer['firstname'] | title }} {{customer['lastname'] | title }}</p>
+                                <p><span>Age:</span> {{customer['age']}}</p>
+                                <p><span>Gender:</span> {{customer['gender']}}</p>
+                                <p><span>Location:</span> {{customer['location'] | title}}</p>
+                                <p><span>Contact no:</span> {{customer['contact_num']}}</p>
+                            </div>
+                        {% endfor %}
+                        {% for vehicle in vehicle_list %}
+                            {% for driver in driver_list %}
+                                {% if vehicle['vehicle_id'] == vehicle_id and vehicle['driver_id'] == driver['driver_id'] %}
+                                    <div class="driver_vehicle_info">
+                                        <h2>Drivers Info</h2>
+                                            <p><span>Name: </span>{{driver['firstname'] | title}} {{driver['lastname'] |title}}</p>
+                                            <p><span>Contact no:</span> {{driver['contact_num']}}</p>
+                                            <p><span>Email:</span> {{driver['email']}}</p>
+                                        <h2>Vehicle Info</h2>
+                                            <p><span>Vehicle type:</span> {{vehicle['vehicle_type'] | title}}</p>
+                                            <p><span>Number of seats:</span> {{vehicle['num_seat']}}</p>
+                                            <p><span>Price:</span> PHP {{vehicle['rent_price']}} per day</p>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                        <form action="/bookings" method="post">
+                            <div class="destination_info">
+                                <h2>Destination Info</h2>
+                                    <p><span>Pick-up Location:</span> <input type="text" name="pick_up_loc" value="{{pick_location | title}}" class="npt" readonly></p>
+                                    <p><span>Destination:</span> <input type="text" name="destination" value="{{destination | title}}" class="npt" readonly></p>
+                                    <p><span>Number of days:</span> <input type="text" name="num_days" value="{{num_days}}" class="npt" readonly></p>
+                                <h2>Total Amount of Payment</h2>
+                                    <p style="padding-left: 75px;"><span>PHP</span> <input style="font-size: 30px;" type="text" name="total_amount" value="{{total_amount}}" class="npt" readonly></p>
+
+                            </div>
+
+                            <div class="bt">
+                                <input type="submit" class="btn" name="booking_conf_btn" value="Cancel">
+                                <input type="submit" class="btn" name="booking_conf_btn" value="Confirm Booking">
+                            </div>
+                        </form>		   
+				  </div>
+				</div>
+			</div>
+		</div>
+			
+     </body>
+</html>

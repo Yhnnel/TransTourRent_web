@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf=8">
+		<meta name="viewport" content="width=device-width,  initial-scale=1.0">
+		<meta http-equiv="X-AU-Compatible" content="ie-edge,Chrome=1">
+          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="{{url_for('static', filename='styles/login.css')}}">        
+		<title>TransTouRent | Login</title>
+	</head>
+	<body>
+          <div>
+               <img src="{{url_for('static', filename='images/logo.png')}}"  class="logo" alt="">
+          </div>
+          <div class="center">
+                     <form method="post" action="/account_login" >
+                            <div class="txt_field">
+                                   <input type="text" name="username" required>
+                                   <span></span>
+                                   <label>Username</label>
+                            </div>
+                            <div class="txt_field">
+                                   <input type="password" name="password" required>
+                                   <span></span>
+                                   <label>Password</label>
+                            </div>
+                            <input type="submit" value="Login">
+                            <div class="signup_link">
+                                   Don't have an account?&nbsp;&nbsp;<a href="/registration">Signup</a>
+                            </div>
+                     </form>
+              </div>
+     </body>
+</html>
+
+
+

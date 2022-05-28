@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf=8">
+		<meta name="viewport" content="width=device-width,  initial-scale=1.0">
+		<meta http-equiv="X-AU-Compatible" content="ie-edge,Chrome=1">
+          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="{{url_for('static', filename='styles/van&busStyle.css')}}">        
+		<title>TransTouRent | VEHICLE DETAILS</title>
+	</head>
+	<body>
+		<div class="fcontainer">
+			<div class="f1">
+				<img src="{{url_for('static', filename='images/logo.png')}}" class="logo">
+			</div>
+		</div>
+		
+		<div class="pcontainer">
+			<div class="p1">
+				<a href="/profile_edit"><img src="{{url_for('static', filename='images/profile.png')}}" class="profile"></a>
+			</div>
+		</div>
+			
+		<div>
+			<div class="f2">
+				<div class= "all">
+				  <div class="header-container">
+					   <ul>
+							<li><a href="/home" >HOME</a></li>
+							<li class="active"><a href="/vehicle">VEHICLE</a></li>
+							<li ><a href="/bookings">BOOKINGS</a></li>
+							<li><a href="/payment">PAYMENT</a></li>
+							<li><a href="/logout">LOGOUT</a></li>
+					   </ul>
+				  </div>
+				  <div class="bk-container">
+					
+					   <div class="slide_bg">
+							<div class="slideshow-container">
+
+								<div class="mySlides fade">
+								 
+								  <img src="{{url_for('static', filename='images/bus_logo.png')}}" style="width:85%">
+								  
+								</div>
+
+								<div class="mySlides fade">
+								  
+								  <img src="{{url_for('static', filename='images/van_logo.png')}}" style="width:100%">
+								 
+								</div>
+
+								<a class="prev" onclick="plusSlides(-1)">&#9664;</a>
+								<a class="next" onclick="plusSlides(1)">&#9654;</a>
+								<div class="btn">
+								<button type"button" href="/booknow"><a href="/booknow">Book Now</a></button>
+								</div>
+
+							</div>
+							
+					   </div>
+					   <script>
+							let slideIndex = 1;
+							showSlides(slideIndex);
+
+							function plusSlides(n) {
+							  showSlides(slideIndex += n);
+							}
+
+							function currentSlide(n) {
+							  showSlides(slideIndex = n);
+							}
+
+							function showSlides(n) {
+							  let i;
+							  let slides = document.getElementsByClassName("mySlides");
+							  let dots = document.getElementsByClassName("dot");
+							  if (n > slides.length) {slideIndex = 1}    
+							  if (n < 1) {slideIndex = slides.length}
+							  for (i = 0; i < slides.length; i++) {
+								slides[i].style.display = "none";  
+							  }
+							  for (i = 0; i < dots.length; i++) {
+								dots[i].className = dots[i].className.replace(" active", "");
+							  }
+							  slides[slideIndex-1].style.display = "block";  
+							  dots[slideIndex-1].className += " active";
+							}
+							</script>
+					   <div class="details">
+							
+							<div class = "align">
+								<h2>DRIVER</h2>
+								<p>Jesse Remiegay Paraloar</p>
+								<p class="straight">09123456789</p>
+								<p class="straight">jesrem@gmail.com</p>
+								<h2>VEHICLE</h2>
+								<p class="straight">Van</p>
+								<p class="straight">12 Seater</p>
+								<p class="straight">PHP 7,0000 per day</p>
+							</div>
+														
+					   </div>				   
+				  </div>
+				</div>
+			</div>
+		</div>
+			
+     </body>
+</html>

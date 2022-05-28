@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf=8">
+		<meta name="viewport" content="width=device-width,  initial-scale=1.0">
+		<meta http-equiv="X-AU-Compatible" content="ie-edge,Chrome=1">
+          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="{{url_for('static', filename='styles/van&busStyle2.css')}}">        
+		<title>TransTouRent | VEHICLE DETAILS</title>
+	</head>
+	<body>
+		<div class="fcontainer">
+			<div class="f1">
+				<img src="{{url_for('static', filename='images/logo.png')}}" class="logo">
+			</div>
+		</div>
+		
+		<div class="pcontainer">
+			<div class="p1">
+				<a href="/profile_edit"><img src="{{url_for('static', filename='images/profile.png')}}" class="profile"></a>
+			</div>
+		</div>
+			
+		<div>
+			<div class="f2">
+				<div class= "all">
+				  <div class="header-container">
+					   <ul>
+							<li><a href="/home" >HOME</a></li>
+							<li class="active"><a href="/vehicle">VEHICLE</a></li>
+							<li>
+								<form action="/bookings" method="post">
+									<input type="submit" name="booking_conf_btn" value="BOOKINGS" class="home_btns">
+								</form>						
+							</li>
+							<li>
+								<form action="/payment" method="post">
+									<input type="submit" name="payment_btn" value="PAYMENT" class="home_btns">
+								</form>	
+							</li>
+							<li><a href="/logout">LOGOUT</a></li>
+					   </ul>
+				  </div>
+				  <div class="bk-container">
+					
+					   <div class="personal_info">
+							<div class="details1">
+								
+								<div class = "pinformation">
+									{% for customer in customer_info%}
+										<b>Personal Information</b>
+										<br><br>
+										<p><span>Name: </span>{{customer['firstname'] | title}} {{customer['lastname'] |title}}</p>
+										<br>
+										<p class="straight"><span>Age: </span>{{customer['age']}}</p>
+										<br>
+										<p class="straight"><span>Gender: </span>{{customer['gender']}}</p>
+										<br>
+										<p class="straight"><span>Birthday: </span>{{customer['birth_month'] | title}} {{customer['birth_day']}}, {{customer['birth_year']}}</p>
+									{% endfor %}
+								</div>														
+							</div>	
+							
+					   </div>
+					   
+					   <div class="details">
+							
+							<div class = "align">
+								<form action="/booking_conf" method="post" class="txtform">
+								  <input type="text" id="fname" name="pick_up_loc" class="txt1" placeholder="Enter pick up location...">
+								  <br><br><br>
+								  <input type="text" id="lname" name="destination" class="txt1" placeholder="Enter travel destination...">
+								  <br><br><br>
+								  <input type="number" id="lname" name="num_days" class="txt1" placeholder="Number of days..." id="arrow">
+								   <br><br><p>{{ message }}</p><br>
+								    <div class="bt">
+										<input type="hidden" name="vehicle_id" value="{{vehicle_id }}">
+										<input type="submit" class="btn" value="Book Now">
+									</div>
+								</form>	
+							</div>														
+					   </div>				   
+				  </div>
+				</div>
+			</div>
+		</div>
+			
+     </body>
+</html>

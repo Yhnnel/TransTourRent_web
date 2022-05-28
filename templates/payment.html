@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf=8">
+		<meta name="viewport" content="width=device-width,  initial-scale=1.0">
+		<meta http-equiv="X-AU-Compatible" content="ie-edge,Chrome=1">
+          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="{{url_for('static', filename='styles/payment.css')}}">        
+		<title>TransTouRent | HOME</title>
+	</head>
+	<body>
+		<div class="fcontainer">
+			<div class="f1">
+				<img src="{{url_for('static', filename='images/logo.png')}}" class="logo">
+			</div>
+		</div>
+		
+		<div class="pcontainer">
+			<div class="p1">
+				<a href="/profile_edit"><img src="{{url_for('static', filename='images/profile.png')}}" class="profile"></a>
+			</div>
+		</div>
+			
+		<div>
+			<div class="f2">
+				<div class= "all">
+				  <div class="header-container">
+					   <ul>
+							<li class="active"><a href="/home" >HOME</a></li>
+							<li class="active1"><a href="/vehicle">VEHICLE</a></li>
+							<li>
+								<form action="/bookings" method="post">
+									<input type="submit" name="booking_conf_btn" value="BOOKINGS" class="home_btns">
+								</form>						
+							</li>
+							<li>
+								<form action="/payment" method="post">
+									<input type="submit" name="payment_btn" value="PAYMENT" class="home_btns">
+								</form>	
+							</li>
+							<li><a href="/logout">LOGOUT</a></li>
+					   </ul>
+				  </div>
+				  <div class="bk-container">
+						<table class="table">
+							<tr>	
+								<th clas="approve">Vehicle</th>
+								<th>Total Payment</th>
+								<th class="upload">Upload Reciept</th>
+
+							</tr>
+							{% for booking in customer_booking %}
+								{% if booking['vehicle_id'] == 4 or booking['vehicle_id'] == 5 or booking['vehicle_id'] == 6 %}
+									<tr>	
+										<td><a href="#"><img src="{{url_for('static', filename='images/bus_logo.png')}}"v class="busbooking"></a></td>
+										<td>PHP {{booking['total_payment']}}</td>
+										<td>
+										<label for="myfile">Select a file</label>
+										<br><br>
+										<input type="file" id="fname" name="fname" class="file">								
+										</td>
+								{% else %}
+									</tr>
+									<tr>	
+										<td><a href="#"><img src="{{url_for('static', filename='images/van_logo.png')}}" class="vanbooking"></a></td>
+										<td clas="approve" >PHP {{booking['total_payment']}}</td>
+											
+										<td>
+										<label for="myfile">Select a file</label>
+										<br><br>
+										<input type="file" id="fname" name="fname" class="file">								
+										</td>
+									</tr>
+								{% endif %}
+							{% endfor %}
+						</table>					   
+				  </div>
+				</div>
+			</div>
+		</div>
+			
+     </body>
+</html>

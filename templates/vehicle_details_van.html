@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf=8">
+		<meta name="viewport" content="width=device-width,  initial-scale=1.0">
+		<meta http-equiv="X-AU-Compatible" content="ie-edge,Chrome=1">
+          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="{{url_for('static', filename='styles/van&busStyle.css')}}">        
+		<title>TransTouRent | VEHICLE DETAILS</title>
+	</head>
+	<body>
+		<div class="fcontainer">
+			<div class="f1">
+				<img src="{{url_for('static', filename='images/logo.png')}}" class="logo">
+			</div>
+		</div>
+		
+		<div class="pcontainer">
+			<div class="p1">
+				<a href="/profile_edit"><img src="{{url_for('static', filename='images/profile.png')}}" class="profile"></a>
+			</div>
+		</div>
+			
+		<div>
+			<div class="f2">
+				<div class= "all">
+				  <div class="header-container">
+					   <ul>
+							<li><a href="/home" >HOME</a></li>
+							<li class="active"><a href="/vehicle">VEHICLE</a></li>
+							<li>
+								<form action="/bookings" method="post">
+									<input type="submit" name="booking_conf_btn" value="BOOKINGS" class="home_btns">
+								</form>						
+							</li>
+							<li>
+								<form action="/payment" method="post">
+									<input type="submit" name="payment_btn" value="PAYMENT" class="home_btns">
+								</form>	
+							</li>
+							<li><a href="/logout">LOGOUT</a></li>
+					   </ul>
+				  </div>
+				  <div class="vehicle-container">
+		
+					   <div class="slide_bg">
+						
+							<div class="slideshow-container">
+								
+								
+								{%for vehicle in vehicle_list %}
+									{% if vehicle['vehicle_id'] == vehicle_id %}
+										{% for driver in driver_list %}
+											{% if vehicle['driver_id'] == driver['driver_id'] %}
+												<div class="mySlides fade">
+													<a href="/van" class="back_btn"><h3>  < BACK </h3></a>
+													<img src="{{url_for('static', filename='images/van_logo.png')}}" style="width:400px">
+													<form action="/booknow" method="post">
+														<div class="text"><h2>DRIVER</h2></div>
+														<div class="text"><p>{{driver['firstname'] | title}} {{driver['lastname'] |title}}</p></div>
+														<div class="text"><p>{{driver['contact_num']}}</p></div>
+														<div class="text"><p>{{driver['email']}}</p></div>
+														<div class="text1"><h2>Vehicle</h2></div>
+														<div class="text1"><p>{{vehicle['vehicle_type'] | title}}</p></div>
+														<div class="text1"><p>{{vehicle['num_seat']}} seater</p></div>
+														<div class="text1"><p>PHP {{vehicle['rent_price']}} per day</p>
+															<div class="bt">
+																<input type="hidden" name="vehicle_id" value="{{vehicle_id}}">
+																<input type="submit" class="btn" value="Book Now">
+															</div>
+														</div>
+														
+													</form>
+												</div>
+											{% endif %}
+										{% endfor %}
+									{% endif %}
+								{% endfor %}								
+								
+
+							</div>
+							
+					   </div>
+					   <script>
+							let slideIndex = 1;
+							showSlides(slideIndex);
+
+							function plusSlides(n) {
+							  showSlides(slideIndex += n);
+							}
+
+							function currentSlide(n) {
+							  showSlides(slideIndex = n);
+							}
+
+							function showSlides(n) {
+							  let i;
+							  let slides = document.getElementsByClassName("mySlides");
+							  let dots = document.getElementsByClassName("dot");
+							  if (n > slides.length) {slideIndex = 1}    
+							  if (n < 1) {slideIndex = slides.length}
+							  for (i = 0; i < slides.length; i++) {
+								slides[i].style.display = "none";  
+							  }
+							  for (i = 0; i < dots.length; i++) {
+								dots[i].className = dots[i].className.replace(" active", "");
+							  }
+							  slides[slideIndex-1].style.display = "block";  
+							  dots[slideIndex-1].className += " active";
+							}
+							</script>
+							
+						
+														
+					   </div>				   
+				  </div>
+				</div>
+			</div>
+		</div>
+			
+     </body>
+</html>

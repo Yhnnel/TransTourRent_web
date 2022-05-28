@@ -1,0 +1,469 @@
+* {
+		margin: 0;
+		padding: 0;
+              
+}
+body{
+       background: #dbc769;
+       font-family:sans-serif;
+	   margin: auto;
+       
+       
+}
+.f1{
+	align-items: center;
+	justify-content: center;
+	margin:auto;
+	display:flex;
+
+}
+
+.fcontainer{
+	width:100%;
+	display:flex;
+}
+
+.logo{
+	position:relative;
+	width:50%;
+	height:50%;
+	margin-top: 25px;
+	align-items: center;
+	justify-content: center;
+}
+
+.p1{
+	align-items: center;
+	justify-content: center;
+	margin:auto;
+
+}
+
+.pcontainer{
+	margin:auto;
+
+	position:relative;
+	left:-480px;
+	width:200px;
+	height:110px;
+}
+
+.profile{
+	align-items: center;
+	justify-content: center;
+	position:relative;
+	width:50%;
+	height:70%;
+	
+}
+
+
+.header-container{
+               background: #ff8210;      
+               text-align:center;
+			   display:flex;
+               height: 70px;
+               top: 20%;
+               left: 10%;
+               right:10%;
+			align-items: center;
+			justify-content: center;
+       
+}
+.header-container ul{
+              display: inline-flex;
+              list-style:none;
+              color:#fff;
+              
+              
+}
+.header-container ul li{
+               width:100%;
+               padding: 15px 30px 15px 30px;
+			   border-radius:3px;			   
+}
+.header-container ul li a{
+               text-decoration:none;
+               color:#fff;
+               font-size: 30px;
+              
+}
+.header-container ul li:hover{
+               background:#501268;
+			   padding: 15px 30px 15px 30px;
+               border-radius:3px;
+     
+}
+
+
+.all{
+	
+}
+
+.f2{
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20px;
+	width: 1200px;
+}
+
+.bk-container{
+          background: #000 url(bk.png);
+          color:#fff;
+          height:400px;
+		  width:100%;
+          position: relative;
+          overflow:hidden;
+          display:flex;
+		  background-repeat:no-repeat;
+		  background-size:cover;
+}
+.overlay{
+          position:absolute;
+          top:0;
+          left:0;
+          width:100%;
+          height:100%;
+          background:#501268;
+          opacity:.7;
+}
+.welcome{
+     font-size:30px;
+     z-index:1;
+     margin-top:30px;
+     margin-left:350px;
+}
+.aboutus{
+     font-size:30px;
+     z-index:1;
+     margin-left:-600px;
+     margin-top:170px;
+}
+
+.t{
+      z-index:1;
+      border-left:3px solid white;
+      height:200px;
+      position:absolute;
+      left:30%;
+      margin-left:3px;
+      top:100px;
+
+}
+.p{
+     font-size:25px;
+     z-index:1;
+     position:absolute;
+     left:35%;
+     top:150px;  
+}
+
+/* profile-----------------------------------------------------*/
+.prof{
+	text-align:left;
+	padding-left: 75px;
+	padding-top: 50px;
+	
+}
+.birthday{
+	text-align:right;
+	padding-right: 60px;
+	margin-top: -65%;
+}
+.prof-container form{
+	height:200%;
+	width:100%;
+	
+}
+.prof input, .birthday select,  .birthday option{
+	background: transparent;
+	
+}
+.prof input[type=text],input[type=number] {
+  width: 300px;
+  padding: 12px 20px;
+  margin: 20px 0;
+  display: inline-block;
+  border: 3px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color:white;
+}
+.prof input[type=radio] {
+  width: 70px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 3px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color:white;
+}
+.birthday .numsize{
+  width: 250px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 3px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color:white;
+}
+.prof h3{
+	padding-left:450px;
+	font-size:50px;
+	
+}
+.birthday  h2{
+	padding-right:80px;
+}
+.prof .gen{
+	padding-left: 20px;
+	font-size:20px;
+}
+input[type=radio] {
+    border: 0px;
+    width: 100%;
+    height: 2em;
+}
+.btn{
+	cursor: pointer;
+	width: 155px;
+	height: 55px;
+	padding: 15x 0;
+	text-align: center;
+	margin: 20 px 10px;
+	border-radius: 25px;
+	font-weight: bold;
+	border: 2px solid;
+	background: #ff8210;
+	color: white;
+	text-decoration:none;
+}
+.bt{
+	padding-top: 200px;
+	text-align: center;
+}
+.birthday select{
+  width: 250px;
+  padding: 12px 10px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 3px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  
+  
+}
+.prof-container{
+		  background: #000 url(bk.png);
+          color:#fff;
+          height:500px;
+		  width:100%;
+          position: relative;
+          overflow:hidden;
+          display:flex;
+		  background-repeat:no-repeat;
+		  background-size:cover;
+}
+.placeholder{
+	font-size:20px;
+	border-top-style: hidden;
+	border-right-style: hidden;
+	border-left-style: hidden;
+	border-bottom-style: groove;
+	outline:none;
+}
+::placeholder {
+	color:white;
+	
+}
+.month1{
+	background-color:transparent;
+	font-size: 20px;
+	color:	#eb9393;
+}
+#lname{
+	margin-left:440px;
+	border-right-style: hidden;
+	border-left-style: hidden;
+	border-bottom-style: groove;
+	border-top-style: hidden;
+}
+#fname{
+	border-right-style: hidden;
+	border-left-style: hidden;
+	border-bottom-style: groove;
+	border-top-style: hidden;
+	
+}
+#age{
+	border-right-style: hidden;
+	border-left-style: hidden;
+	border-bottom-style: groove;
+	border-top-style: hidden;
+	
+}
+#province{
+	border-right-style: hidden;
+	border-left-style: hidden;
+	border-bottom-style: groove;
+	border-top-style: hidden;
+	
+}
+
+
+.month{
+	background-color:transparent;
+	font-size: 20px;
+	color:white;
+	width:200px;
+}
+.bday{
+	margin-top:20px;
+	margin-left:230px;
+	
+	
+}
+#month{
+	height:30px;
+	border: 3px solid #ccc;
+
+}
+
+#day{
+	margin-left:50px;
+	height:30px;
+	border: 3px solid #ccc;
+}
+#year{
+	margin-left:50px;
+	height:30px;
+	border: 3px solid #ccc;
+}
+.edit{
+	position:relative;
+	float:right;
+	margin-right:84px;
+	margin-top:65px;
+	font-size:28px;
+	color:white;
+}
+.plussign{
+	color:darkgray;
+	font-size:35px;
+	margin-top:-50px;
+	margin-left:100px;
+}
+
+/*------PAYMENT-------------------------*/
+
+.active3{
+	background:#501268;
+	
+}
+
+.age_prof{
+
+	display:block;
+	
+}
+.fname_prof{
+	margin-left:3px;
+	display:block;
+	width:100px;
+}
+.email_prof{
+	display:block;
+}
+.lname_prof{
+	margin-left:15px;
+	display:block;
+	width:100px;
+	position:relative;
+}
+.gen_prof{
+	margin-left:18px;
+	display:block;
+}
+
+.valid{
+	font-size:20px;
+	position:relative;
+	top:-340px;
+	
+}
+.lname-cont{
+	width:300px;
+	position:relative;
+	left:400px;
+	top:-110px;
+}
+.age-cont{
+	width:300px;
+	position:relative;
+	top:-110px;
+}
+
+.gen-cont{
+	width:400px;
+	position:relative;
+	left:390px;
+	top:-190px;
+}
+
+.user_prof{
+	display:block;
+	
+}
+
+.user-cont{
+	width:400px;
+	position:relative;
+	top:-160px;
+}
+
+.loc_prof{
+	display:block;
+}
+
+.loc-cont{
+	width:400px;
+	position:relative;
+	left:400px;
+	top:-272px;
+}
+.wel{
+	padding-bottom:30px;
+}
+.email-cont{
+	width:400px;
+	position:relative;
+	top:-260px;
+}
+
+.num_prof{
+	display:block;
+}
+
+.num-cont{
+	
+	width:400px;
+	position:relative;
+	left:400px;
+	top:-370px;
+}
+
+/*---------------------------------------BOOKING PAYMENT BUTTONS----------------------------------*/
+
+input.home_btns{
+	background-color: inherit;
+	border: none;
+	color: white;
+	font-size: 28px;
+	margin-top: 7px;
+}
+
+input.home_btns:hover {
+	cursor:pointer;
+}

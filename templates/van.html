@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf=8">
+		<meta name="viewport" content="width=device-width,  initial-scale=1.0">
+		<meta http-equiv="X-AU-Compatible" content="ie-edge,Chrome=1">
+          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="{{url_for('static', filename='styles/van&busStyle.css')}}">        
+		<title>TransTouRent | VAN</title>
+	</head>
+	<body>
+		<div class="fcontainer">
+			<div class="f1">
+				<img src="{{url_for('static', filename='images/logo.png')}}" class="logo">
+			</div>
+		</div>
+		
+		<div class="pcontainer">
+			<div class="p1">
+				<a href="/profile_edit"><img src="{{url_for('static', filename='images/profile.png')}}" class="profile"></a>
+			</div>
+		</div>
+			
+		<div>
+			<div class="f2">
+				<div class= "all">
+				  <div class="header-container">
+					   <ul>
+							<li><a href="/home" >HOME</a></li>
+							<li class="active"><a href="/vehicle">VEHICLE</a></li>
+							<li>
+								<form action="/bookings" method="post">
+									<input type="submit" name="booking_conf_btn" value="BOOKINGS" class="home_btns">
+								</form>						
+							</li>
+							<li>
+								<form action="/payment" method="post">
+									<input type="submit" name="payment_btn" value="PAYMENT" class="home_btns">
+								</form>	
+							</li>
+							<li><a href="/logout	">LOGOUT</a></li>
+					   </ul>
+				  </div>
+				  <div class="bk-container">
+					
+					{% for vehicle in vehicle_list %}
+						{% if vehicle['vehicle_type'] == 'van' %}
+							<div class="first">
+									<div class = "align"><img src="{{url_for('static', filename='images/van_logo.png')}}" class="logo1"></div>
+									<h3>{{ vehicle['num_seat']}} seaters</h3>
+									<form action="/vehicle_details_van" method="post">
+										<input type="hidden" name="vehicle_id" value="{{ vehicle['vehicle_id']}}">
+										<input type="submit" name="view" value="View details" class="view_btn">
+									</form>
+									<div class="bt">
+										<form action="/booknow" method="post">
+											<input type="hidden" name="vehicle_id" value="{{ vehicle['vehicle_id']}}">
+											<input type="submit" class="btn" value="Book Now">
+										</form>
+									</div>
+							</div>
+						{% endif %}
+					{% endfor %}				   
+				  </div>
+				</div>
+			</div>
+		</div>
+			
+     </body>
+</html>
